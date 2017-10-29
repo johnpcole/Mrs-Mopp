@@ -5,9 +5,9 @@ from contents_subcomponent import contents_module as Contents
 
 
 class DefineRoom:
-	
-	
-	
+
+
+
 	def __init__(self):
 		self.roomsize = Vector.createfromvalues(36, 27)
 		self.board = [[Contents.createcontents() for y in range(0, self.roomsize.gety() + 2)]
@@ -22,11 +22,10 @@ class DefineRoom:
 		sizey = self.roomsize.gety()
 
 		for x in range(0, sizex + 2):
-			for y in range(0, sizey + 2):
+			for y in range(1, sizey + 1):
 				self.setcontents(x, y, "Clean")
-			for x in range(0, sizex + 2):
-				self.setcontents(x, 0, "Wall")
-				self.setcontents(x, sizey + 1, "Wall")
+			self.setcontents(x, 0, "Wall")
+			self.setcontents(x, sizey + 1, "Wall")
 
 		for y in range(0, sizey + 2):
 			for x in range(0, 3):
@@ -36,6 +35,7 @@ class DefineRoom:
 				for x in range(0, 3):
 					self.setcontents(1 + x, y, "Wall")
 					self.setcontents(sizex - x, y, "Wall")
+
 
 
 
@@ -49,12 +49,12 @@ class DefineRoom:
 
 
 
-	def isclean(self, positionx, positiony):
-		return self.board[positionx][positiony].isclean()
+	def checkcontents(self, positionx, positiony, criteria):
+		return self.board[positionx][positiony].check(criteria)
 
 
 
-#	def predictmove(self):
+		#	def predictmove(self):
 #		newposition = code.definitions_component.definitions_class.Vectordefinition(0, 0)
 #		actualspeed = code.definitions_component.definitions_class.Vectordefinition(0, 0)
 #		if self.determinehealth() == self.drunk:
@@ -66,20 +66,18 @@ class DefineRoom:
 
 
 
-	# def fillarea(self, outcome, topleftposition, areasize):
-	# 	for xpos in range(topleftposition.x, topleftposition.x + areasize.x):
-	# 		for ypos in range(topleftposition.y, topleftposition.y + areasize.y):
-	# 			if self.board[xpos][ypos] != self.wall:
-	# 				self.board[xpos][ypos] = outcome
-	#
-	#
-	#
-	# def fillareagap(self, outcome, topleftposition, areasize):
-	# 	for xpos in range(topleftposition.x, topleftposition.x + areasize.x):
-	# 		for ypos in range(topleftposition.y, topleftposition.y + areasize.y):
-	# 			if self.board[xpos][ypos] == self.space:
-	# 				self.board[xpos][ypos] = outcome
-	#
+	def fillarea(self, outcome, topleftposition, areasize, fillmode):
+		
+		if fillmode == "All":
+			checkvalue = "Not Wall"
+		elif fillmode == "Gaps":
+			checkvalue = "Clean"
+	
+		for xpos in range(topleftposition.x, topleftposition.x + areasize.x):
+			for ypos in range(topleftposition.y, topleftposition.y + areasize.y):
+				if self._checkcontents(xpos, ypos, checkvalue) == True:
+					self.setcontents(xpos, ypos, outcome)
+
 	#
 	#
 	# def addmess(self, outcome, messlocation):

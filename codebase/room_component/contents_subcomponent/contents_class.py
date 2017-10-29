@@ -59,13 +59,46 @@ class DefineContents:
 
 
 
-	def isclean(self):
-
-		if self.contents == -999:
-			outcome = True
+	def check(self, rawcheckstate):
+		if rawcheckstate[:4] == "Not ":
+			checkstate = rawcheckstate[5:]
+			desiredoutcome = False
 		else:
-			outcome = False
+			checkstate = rawcheckstate
+			desiredoutcome = True
+
+		checklist = []
+		if checkstate == "Dust":
+			checklist.append(1)
+		elif checkstate == "Mug":
+			checklist.append(2)
+		elif checkstate == "Shirt":
+			checklist.append(3)
+		elif checkstate == "Glass":
+			checklist.append(4)
+		elif checkstate == "Pants":
+			checklist.append(5)
+		elif checkstate == "Dirty":
+			checklist.append(1)
+			checklist.append(2)
+			checklist.append(3)
+			checklist.append(4)
+			checklist.append(5)
+		elif checkstate == "Clean":
+			checklist.append(-999)
+		elif checkstate == "Spellcasting":
+			checklist.append(77)
+		elif checkstate == "Wall":
+			checklist.append(88)
+		elif checkstate == "Mrs Mopp":
+			checklist.append(99)
+		else:
+			print "Invalid Room Position Contents - ", checkstate
+			x = 1 / 0
+
+		if self.contents in checklist:
+			outcome = desiredoutcome
+		else:
+			outcome = not(desiredoutcome)
 		return outcome
-
-
 
