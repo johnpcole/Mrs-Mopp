@@ -1,4 +1,4 @@
-class ContentsClass:
+class DefineContents:
 
 	def __init__(self):
 

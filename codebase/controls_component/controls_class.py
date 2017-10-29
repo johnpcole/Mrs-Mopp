@@ -1,6 +1,6 @@
-from ..common_components import GUI
-from ..common_components import Vector
-from ..common_components import Keyboard
+from ..common_components.userinterface_framework import userinterface_module as GUI
+from ..common_components.vector_datatype import vector_module as Vector
+from ..common_components.appinput_framework import appinput_module as Keyboard
 
 
 

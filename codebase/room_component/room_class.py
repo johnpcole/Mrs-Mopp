@@ -1,16 +1,16 @@
 import random
-from ..common_components import Vector
-from contents_subcomponent import ContentsClass
+from ..common_components.vector_datatype import vector_module as Vector
+from contents_subcomponent import contents_module as Contents
 
 
 
-class RoomClass:
+class DefineRoom:
 	
 	
 	
 	def __init__(self):
 		self.roomsize = Vector.createfromvalues(36, 27)
-		self.board = [[ContentsClass() for y in range(0, self.roomsize.gety() + 2)]
+		self.board = [[Contents.createcontents() for y in range(0, self.roomsize.gety() + 2)]
 																			for x in range(0, self.roomsize.getx() + 2)]
 		self.buildroom()
 
