@@ -205,4 +205,4 @@ def runprogram():
 #		display.refreshscreen(enemyarmy, defenderarmy, field, controls, game)
 
 
-	print "Application Ended"
+#	print "Application Ended"

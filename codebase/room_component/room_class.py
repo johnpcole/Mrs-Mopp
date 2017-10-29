@@ -54,15 +54,15 @@ class DefineRoom:
 
 
 
-	def predictmove(self):
-		newposition = code.definitions_component.definitions_class.Vectordefinition(0, 0)
-		actualspeed = code.definitions_component.definitions_class.Vectordefinition(0, 0)
-		if self.determinehealth() == self.drunk:
-			actualspeed = scalevector(self.speed, -1)
-		else:
-			actualspeed = self.speed
-		newposition = sumvectors(self.position, actualspeed)
-		return newposition
+#	def predictmove(self):
+#		newposition = code.definitions_component.definitions_class.Vectordefinition(0, 0)
+#		actualspeed = code.definitions_component.definitions_class.Vectordefinition(0, 0)
+#		if self.determinehealth() == self.drunk:
+#			actualspeed = scalevector(self.speed, -1)
+#		else:
+#			actualspeed = self.speed
+#		newposition = sumvectors(self.position, actualspeed)
+#		return newposition
 
 
 
@@ -87,38 +87,38 @@ class DefineRoom:
 	
 	
 	
-	def findspace(self):
+#	def findspace(self):
+#
+#		maxattempts = 2 * self.roomsize.getarea()
+#		attempts = 0
+#		loopstatus = False
+#		outcome = Vector.createfromvalues(-999, -999)
+#		while loopstatus == False:
+#			attemptx = random.randrange(5, self.roomsize.x - 3)
+#			attempty = random.randrange(2, self.roomsize.y)
+#			if self.isclean(attemptx, attempty) == True:
+#				outcome = Vector.setfromvalues(attemptx, attempty)
+#				loopstatus = True
+#			else:
+#				attempts = attempts + 1
+#				if attempts > maxattempts:
+#					loopstatus = True
+#		return outcome
+	
+	
+	
+#	def collisiondetect(self, currenttool, topleftposition, areasize):
+#
+#		collisiontally = 0
+#		for xpos in range(topleftposition.getx(), topleftposition.getx() + areasize.getx()):
+#			for ypos in range(topleftposition.gety(), topleftposition.gety() + areasize.gety()):
+#				if self.isclean(xpos, ypos) == False:
+#					if self.getcontents(xpos, ypos) == currenttool:
+#						collisiontally = collisiontally + 1
+#					else:
+#						collisiontally = collisiontally + 999
+#		return collisiontally
 
-		maxattempts = 2 * self.roomsize.getarea()
-		attempts = 0
-		loopstatus = False
-		outcome = Vector.createfromvalues(-999, -999)
-		while loopstatus == False:
-			attemptx = random.randrange(5, self.roomsize.x - 3)
-			attempty = random.randrange(2, self.roomsize.y)
-			if self.isclean(attemptx, attempty) == True:
-				outcome = Vector.setfromvalues(attemptx, attempty)
-				loopstatus = True
-			else:
-				attempts = attempts + 1
-				if attempts > maxattempts:
-					loopstatus = True
-		return outcome
-	
-	
-	
-	def collisiondetect(self, currenttool, topleftposition, areasize):
-
-		collisiontally = 0
-		for xpos in range(topleftposition.getx(), topleftposition.getx() + areasize.getx()):
-			for ypos in range(topleftposition.gety(), topleftposition.gety() + areasize.gety()):
-				if self.isclean(xpos, ypos) == False:
-					if self.getcontents(xpos, ypos) == currenttool:
-						collisiontally = collisiontally + 1
-					else:
-						collisiontally = collisiontally + 999
-		return collisiontally
-	
 	
 	
 	# def preparedisplay(self, window):

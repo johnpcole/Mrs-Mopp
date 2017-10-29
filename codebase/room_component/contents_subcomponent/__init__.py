@@ -1,1 +1,1 @@
-from contents_class import ContentsClass
+

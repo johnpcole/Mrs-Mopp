@@ -1,4 +1,4 @@
-from codebase import MrsMopp
+from codebase import main_application as MrsMopp
 
 
 
