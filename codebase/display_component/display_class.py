@@ -15,7 +15,7 @@ class DefineDisplay:
 	def __init__(self, room):
 
 		# Sets up the application window size
-		self.displaysize = Vector.add(room.getroomsize(), Vector.createfromvalues(0, 0))
+		self.displaysize = DisplayFunction.getcoordinates(Vector.add(room.getroomsize(), Vector.createfromvalues(0, 0)))
 
 		# Sets up pygame window related properties & methods and loads images, fonts & custom colours
 		self.display = AppDisplay.createwindow(self.displaysize, "Mrs Mopp")
@@ -37,6 +37,8 @@ class DefineDisplay:
 		# Stores the list of buttons to process
 #		self.buttonlist = control.getbuttoncollection("")
 #		self.buttonlist.remove("Field")
+
+		self.drawroom(room)
 
 
 
@@ -69,6 +71,27 @@ class DefineDisplay:
 #
 #
 #
+# -------------------------------------------------------------------
+# Draws the initial room
+# -------------------------------------------------------------------
+
+	def drawroom(self, room):
+
+		sizex = room.getroomsize().getx()
+		sizey = room.getroomsize().gety()
+
+		for x in range(0, sizex + 2):
+			for y in range(0, sizey + 2):
+				position = Vector.createfromvalues(x, y)
+				self.paintobject(room.getcontents(position), position)
+
+		self.display.updatescreen()
+
+		for x in range(-1000000, 1000000):
+			print x
+
+
+		#
 # 	# -------------------------------------------------------------------
 # 	# Updates all elements of the screen, flips the display, then
 # 	# removes embellishments from the field ready for the next cycle
@@ -200,6 +223,7 @@ class DefineDisplay:
 #
 # 	def paintactors(self):
 #
+
 # 		for actor in self.actorlist.actors:
 # 			self.display.drawimage(actor.actorname, actor.coordinates)
 # 			if actor.health > -1:
@@ -207,32 +231,17 @@ class DefineDisplay:
 #
 #
 #
-# 	# -------------------------------------------------------------------
-# 	# Draws defender/ammo/enemy overlays
-# 	# -------------------------------------------------------------------
-#
-# 	def paintdefendersandenemies(self, defenderarmy, enemyarmy, field, control):
-#
-# 		# Get list of enemies
-# 		self.prepareenemies(enemyarmy, field)
-#
-# 		# Get list of defenders
-# 		self.preparedefenders(defenderarmy, field)
-#
-# 		# Add selection overlays
-# 		self.preparefieldselection(control, field)
-#
-# 		# Order defenders & enemies to give correct 3D view
-# 		self.actorlist.orderactors()
-#
-# 		# Paint defenders & enemies
-# 		self.paintactors()
-#
-# 		#Clear-up overhaging actors on the right of the screen
-# 		self.display.drawrectangle(self.overhanglocation, self.overhangsize, "Black", "", 0)
-#
-#
-#
+	# -------------------------------------------------------------------
+	# Draws object
+	# -------------------------------------------------------------------
+
+	def paintobject(self, item, location):
+
+		self.display.drawimage(item, DisplayFunction.getcoordinates(location))
+		print location.getx(), location.gety(), item
+
+
+
 # 	# -------------------------------------------------------------------
 # 	# Erases defender/ammo/enemy overlays
 # 	# -------------------------------------------------------------------

@@ -13,3 +13,4 @@ Bonus	Spell, Bonus_0, Bonus_1, Bonus_2, Bonus_3, Bonus_4, Bonus_5, Bonus_6, Bonu
 Spellcasting	End_B, End_BL, End_BR, End_L, End_R, End_T, End_TL, End_TR
 Spellcasting	Trail_B, Trail_BL, Trail_BR, Trail_L, Trail_R, Trail_T, Trail_TL, Trail_TR
 Spellcasting	Star_0, Star_1
+test	Wall, Clean

@@ -25,3 +25,10 @@ def getimagedata(filenameandpath):
 	return outcome
 
 
+# -------------------------------------------------------------------
+# Turns location into pixel reference
+# -------------------------------------------------------------------
+
+def getcoordinates(sourcevector):
+
+	return sourcevector.getscaled(20)

@@ -23,18 +23,18 @@ class DefineRoom:
 
 		for x in range(0, sizex + 2):
 			for y in range(1, sizey + 1):
-				self.setcontents(x, y, "Clean")
-			self.setcontents(x, 0, "Wall")
-			self.setcontents(x, sizey + 1, "Wall")
+				self.setcontents(Vector.createfromvalues(x, y), "Clean")
+			self.setcontents(Vector.createfromvalues(x, 0), "Wall")
+			self.setcontents(Vector.createfromvalues(x, sizey + 1), "Wall")
 
 		for y in range(0, sizey + 2):
 			for x in range(0, 3):
-				self.setcontents(x, y, "Wall")
-				self.setcontents(sizex + 1 - x, y, "Wall")
+				self.setcontents(Vector.createfromvalues(x, y), "Wall")
+				self.setcontents(Vector.createfromvalues(sizex + 1 - x, y), "Wall")
 			if (y - 1) % 5 < 2:
 				for x in range(0, 3):
-					self.setcontents(1 + x, y, "Wall")
-					self.setcontents(sizex - x, y, "Wall")
+					self.setcontents(Vector.createfromvalues(1 + x, y), "Wall")
+					self.setcontents(Vector.createfromvalues(sizex - x, y), "Wall")
 
 
 
@@ -43,18 +43,18 @@ class DefineRoom:
 
 
 
-	def setcontents(self, positionx, positiony, newcontents):
-		self.board[positionx][positiony].set(newcontents)
+	def setcontents(self, position, newcontents):
+		self.board[position.getx()][position.gety()].set(newcontents)
 
 
 
-	def getcontents(self, positionx, positiony):
-		return self.board[positionx][positiony].get()
+	def getcontents(self, position):
+		return self.board[position.getx()][position.gety()].get()
 
 
 
-	def checkcontents(self, positionx, positiony, criteria):
-		return self.board[positionx][positiony].check(criteria)
+	def checkcontents(self, position, criteria):
+		return self.board[position.getx()][position.gety()].check(criteria)
 
 
 
@@ -76,11 +76,15 @@ class DefineRoom:
 			checkvalue = "Not Wall"
 		elif fillmode == "Gaps":
 			checkvalue = "Clean"
+		else:
+			print "Invalid fill mode"
+			checkvalue = 1/0
 	
 		for xpos in range(topleftposition.x, topleftposition.x + areasize.x):
 			for ypos in range(topleftposition.y, topleftposition.y + areasize.y):
-				if self._checkcontents(xpos, ypos, checkvalue) == True:
-					self.setcontents(xpos, ypos, outcome)
+				pos = Vector.createfromvalues(xpos, ypos)
+				if self.checkcontents(pos, checkvalue) == True:
+					self.setcontents(pos, outcome)
 
 	#
 	#
