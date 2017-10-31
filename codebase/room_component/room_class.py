@@ -22,8 +22,8 @@ class DefineRoom:
 		sizey = self.roomsize.gety()
 
 		for x in range(0, sizex + 2):
-			for y in range(1, sizey + 1):
-				self.setcontents(Vector.createfromvalues(x, y), "Clean")
+			#for y in range(1, sizey + 1):
+			#	self.setcontents(Vector.createfromvalues(x, y), "Clean")
 			self.setcontents(Vector.createfromvalues(x, 0), "Wall")
 			self.setcontents(Vector.createfromvalues(x, sizey + 1), "Wall")
 

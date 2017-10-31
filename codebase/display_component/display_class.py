@@ -15,7 +15,7 @@ class DefineDisplay:
 	def __init__(self, room):
 
 		# Sets up the application window size
-		self.displaysize = DisplayFunction.getcoordinates(Vector.add(room.getroomsize(), Vector.createfromvalues(0, 0)))
+		self.displaysize = DisplayFunction.getcoordinates(Vector.add(room.getroomsize(), Vector.createfromvalues(2, 2)))
 
 		# Sets up pygame window related properties & methods and loads images, fonts & custom colours
 		self.display = AppDisplay.createwindow(self.displaysize, "Mrs Mopp")
