@@ -1,6 +1,8 @@
 from .common_components.userinterface_framework import userinterface_module as GUI
-#from .controls_component import controls_module as Controller
+from .controls_component import controls_module as Controller
+from .display_component import display_module as Display
 from .room_component import room_module as Room
+from .mrsmopp_component import mrsmopp_module as MrsMopp
 #from code.common_components import *
 #from code import *
 
@@ -16,9 +18,11 @@ def runprogram():
 
 #	controls = Controller.createcontroller()
 	room = Room.createroom()
+	mrsmopp = MrsMopp.createmrsmopp()
+	controller = Controller.createcontroller()
 #	enemyarmy = DefineEnemyArmy()
 #	defenderarmy = DefineDefenderArmy(field)
-#	display = DefineDisplay(field, controls)
+	display = Display.createdisplay(room)
 #	game = DefineGame()
 
 

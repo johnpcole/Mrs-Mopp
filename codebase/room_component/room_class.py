@@ -38,6 +38,10 @@ class DefineRoom:
 
 
 
+	def getroomsize(self):
+		return self.roomsize
+
+
 
 	def setcontents(self, positionx, positiony, newcontents):
 		self.board[positionx][positiony].set(newcontents)

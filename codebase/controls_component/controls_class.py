@@ -4,7 +4,7 @@ from ..common_components.appinput_framework import appinput_module as Keyboard
 
 
 
-class ControllerClass:
+class DefineController:
 	# ==========================================================================================
 	# Object Setup
 	# ==========================================================================================

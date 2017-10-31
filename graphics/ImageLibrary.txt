@@ -1,0 +1,15 @@
+Bin	Bin, Dust_0, Dust_1, Dust_2, Dust_3
+Sink	Sink, Glass_0, Glass_1, Glass_2, Glass_3, Mug_0, Mug_1, Mug_2, Mug_3
+Washer	Washer, Pants_0, Pants_1, Pants_2, Pants_3, Shirt_0, Shirt_1, Shirt_2, Shirt_3
+Wall	Cavity_Left, Cavity_Right, Filler
+Mess	Space, Dust, Glass, Mug, Pants, Shirt
+Tools	Basket_Full, Basket_Pants, Basket_Shirt
+Tools	Dustpan_Dust, Dustpan_Full, Empty_Left, Empty_Right
+Tools	Tray_Full, Tray_Glass, Tray_Mug
+MrsMopp	Body_Toolless, Body_Dust, Body_Glass, Body_Mug, Body_Pants, Body_Shirt, Body_Full
+MrsMopp	Head_Drunk, Head_Exhausted, Head_Fit, Head_Happy, Head_Tired
+MrsMopp	Confused_Left, Confused_Right
+Bonus	Spell, Bonus_0, Bonus_1, Bonus_2, Bonus_3, Bonus_4, Bonus_5, Bonus_6, Bonus_7, Bonus_8, Bonus_9
+Spellcasting	End_B, End_BL, End_BR, End_L, End_R, End_T, End_TL, End_TR
+Spellcasting	Trail_B, Trail_BL, Trail_BR, Trail_L, Trail_R, Trail_T, Trail_TL, Trail_TR
+Spellcasting	Star_0, Star_1
