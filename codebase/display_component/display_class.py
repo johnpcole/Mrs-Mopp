@@ -85,6 +85,17 @@ class DefineDisplay:
 				position = Vector.createfromvalues(x, y)
 				self.paintobject(room.getcontents(position), position)
 
+		for y in range(2, sizey, 5):
+			self.paintobject("Cavity_Left", Vector.createfromvalues(0, y))
+			self.paintobject("Cavity_Right", Vector.createfromvalues(sizex - 2, y))
+
+		for x in range(0, sizex, 2):
+			self.paintobject("Filler", Vector.createfromvalues(x, 0))
+			self.paintobject("Filler", Vector.createfromvalues(x, sizey + 1))
+			if (x == 0) or (x > sizex - 4):
+				self.paintobject("Filler", Vector.createfromvalues(x, 1))
+				self.paintobject("Filler", Vector.createfromvalues(x, sizey))
+
 		self.display.updatescreen()
 
 		for x in range(-1000000, 1000000):
